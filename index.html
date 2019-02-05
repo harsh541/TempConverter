@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="author" content="Harsh Patel">
+<title>Temperature Converter</title>
+<style>
+#divResults{ font-weight:bold;font-size:80px;color:#4c4c4c;text-align:center;}
+#formAlign{text-align:center;}
+</style>
+<script type="text/javascript" >
+function ConvertTemp(){
+var txtTemp = document.getElementById('txtTemp').value;
+var readioTemp = document.getElementById('radTemp');
+var formRadio = document.tempForm.radTemp;
+var fahrenheitToCelcius = '';
+var celciusToFahrenheit = '';
+var i ;
+if(txtTemp == ''){
+alert("Please Enter Temprature");
+}
+
+for (i = 0; i < formRadio.length; i++) {
+if (formRadio[i].checked) {
+if(formRadio[i].value == 'FC'){ //Convert Temperature from Fahrenheit To Celcius
+celciusToFahrenheit = (txtTemp - 32) * (5 / 9);
+document.getElementById('divResults').innerHTML = txtTemp+ "ºF = " +celciusToFahrenheit+ "ºC";
+}
+if(formRadio[i].value == 'CF'){ //Convert Temperature from Celcius To Fahrenheit
+fahrenheitToCelcius = (txtTemp * (9/5)) + 32;
+document.getElementById('divResults').innerHTML = txtTemp+ "ºC = " +fahrenheitToCelcius+ "ºF";
+}
+}
+}
+}
+</script>
+</head>
+<body id="formAlign">
+<p>Enter a Temperature to Convert in the field below and select the starting scale.</p>
+<form action="" method="post" name="tempForm">
+<input type="text" name="txtTemp" id="txtTemp" value="" placeholder="Enter a Temperature" />
+<br />
+<br />
+<input type="radio" name="radTemp" value="FC"/>Fahrenheit to Celcius
+<br/>
+<br/>
+<input type="radio" name="radTemp" value="CF"/>Celcius to Fahrenheit
+<br/>
+<br/></form>
+<br/>
+<br/>
+<button onclick="javascript:ConvertTemp();">Convert</button>
+<br/>
+<br/>
+<div id="divResults"></div>
+</body>
+</html>
