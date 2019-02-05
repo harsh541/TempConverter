@@ -6,7 +6,15 @@
 <style>
 #divResults{ font-weight:bold;font-size:80px;color:#4c4c4c;text-align:center;}
 #formAlign{text-align:center;}
+  
+  body {background: #feac5e; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #feac5e, #c779d0, #4bc0c8); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #feac5e, #c779d0, #4bc0c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */}
+
 </style>
+  
+  
+  
 <script type="text/javascript" >
 function ConvertTemp(){
 var txtTemp = document.getElementById('txtTemp').value;
@@ -23,7 +31,7 @@ for (i = 0; i < formRadio.length; i++) {
 if (formRadio[i].checked) {
 if(formRadio[i].value == 'FC'){ //Convert Temperature from Fahrenheit To Celcius
 celciusToFahrenheit = (txtTemp - 32) * (5 / 9);
-document.getElementById('divResults').innerHTML = txtTemp+ "ºF = " +celciusToFahrenheit+ "ºC";
+document.getElementById('divResults').innerHTML = txtTemp+ "F = " +celciusToFahrenheit+ "C";
 }
 if(formRadio[i].value == 'CF'){ //Convert Temperature from Celcius To Fahrenheit
 fahrenheitToCelcius = (txtTemp * (9/5)) + 32;
